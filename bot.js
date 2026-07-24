@@ -1,11 +1,6 @@
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 
-// Impede que o bot desligue se a conexão com o Telegram oscilar
-bot.on('polling_error', (error) => {
-    console.log(`⚠️ Erro de conexão com o Telegram (Ignorado): ${error.code}`);
-});
-
 // 1. CARREGANDO VARIÁVEIS DO .ENV
 const token = process.env.TELEGRAM_TOKEN;
 const groupIds = process.env.GROUP_IDS ? process.env.GROUP_IDS.split(',').map(id => id.trim()) : [];
