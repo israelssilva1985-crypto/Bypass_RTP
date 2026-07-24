@@ -293,7 +293,7 @@ app.listen(PORT, () => {
     // Faz o bot mandar uma requisição para ele mesmo a cada 5 minutos
     setInterval(() => {
         // COLE O SEU LINK DA RENDER AQUI (ex: https://seu-bot.onrender.com)
-        const URL_DO_SEU_BOT = 'https://COLE_SEU_LINK_DA_RENDER_AQUI.onrender.com'; 
+        const URL_DO_SEU_BOT = 'https://bypass-rtp.onrender.com'; 
         
         if (URL_DO_SEU_BOT.includes('onrender.com')) {
             https.get(URL_DO_SEU_BOT, (res) => {
