@@ -1,6 +1,11 @@
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 
+// Impede que o bot desligue se a conexão com o Telegram oscilar
+bot.on('polling_error', (error) => {
+    console.log(`⚠️ Erro de conexão com o Telegram (Ignorado): ${error.code}`);
+});
+
 // 1. CARREGANDO VARIÁVEIS DO .ENV
 const token = process.env.TELEGRAM_TOKEN;
 const groupIds = process.env.GROUP_IDS ? process.env.GROUP_IDS.split(',').map(id => id.trim()) : [];
@@ -278,11 +283,29 @@ bot.onText(/\/stop_bot (.+) (.+)/, (msg, match) => {
 console.log("🤖 Sistema iniciado e pronto!");
 
 // ==========================================
-// 🌐 SERVIDOR WEB FALSO (Para não dormir na Render)
+// 🌐 SERVIDOR WEB + AUTO-PING (Para não dormir)
 // ==========================================
 const express = require('express');
+const https = require('https');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => res.send('Bot rodando 24/7!'));
-app.listen(PORT, () => console.log(`Servidor web escutando na porta ${PORT}`));
+app.get('/', (req, res) => res.send('Bot de Sinais operando 24/7!'));
+
+app.listen(PORT, () => {
+    console.log(`Servidor web escutando na porta ${PORT}`);
+    
+    // Faz o bot mandar uma requisição para ele mesmo a cada 5 minutos
+    setInterval(() => {
+        // COLE O SEU LINK DA RENDER AQUI (ex: https://seu-bot.onrender.com)
+        const URL_DO_SEU_BOT = 'https://COLE_SEU_LINK_DA_RENDER_AQUI.onrender.com'; 
+        
+        if (URL_DO_SEU_BOT.includes('onrender.com')) {
+            https.get(URL_DO_SEU_BOT, (res) => {
+                console.log(`⚡ Auto-ping enviado! Status: ${res.statusCode}`);
+            }).on('error', (err) => {
+                console.log(`⚠️ Erro no auto-ping: ${err.message}`);
+            });
+        }
+    }, 5 * 60 * 1000); // 5 minutos
+});
