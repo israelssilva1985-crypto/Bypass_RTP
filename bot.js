@@ -275,7 +275,16 @@ bot.onText(/\/stop_bot (.+) (.+)/, (msg, match) => {
     }
 });
 
-console.log("🤖 Sistema iniciado e pronto!");
+// ==========================================
+// 🚀 INÍCIO AUTOMÁTICO (Piloto Automático 24/7)
+// ==========================================
+if (groupIds.length > 0) {
+    botRodando = true;
+    console.log("🤖 Sistema reiniciado pela Render! Retomando disparos automáticos...");
+    agendarProximoSinal();
+} else {
+    console.error("❌ ERRO: Nenhum GROUP_ID configurado no .env");
+}
 
 // ==========================================
 // 🌐 SERVIDOR WEB + AUTO-PING (Para não dormir)
