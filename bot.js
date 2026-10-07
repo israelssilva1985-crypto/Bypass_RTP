@@ -72,7 +72,7 @@ const database = {
                 { nome: "30WIN", link: "https://d267gm0v6z4wns.cloudfront.net/?id=411979416" },
                 { nome: "G45.COM", link: "https://G45001.com/?pid=4823233277" },
                 { nome: "9BM.COM", link: "https://9bm.cloud/?pid=1671826683" },
-                { nome: "234VIP", link: "https://234vipqqq.com/?pid=217487215" },
+                { nome: "234VIP", link: "https://234vip37.com/?pid=645762014" },
                 { nome: "78Z.COM", link: "https://yrdeo3.com/?pid=3312022833" },
                 { nome: "67Q_SLOTS", link: "https://y80ak8.com/?pid=2087704872" }
             ]
