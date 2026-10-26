@@ -58,6 +58,9 @@ const database = {
                 { nome: "234VIP", link: "https://234vip37.com/?pid=645762014" },
                 { nome: "78Z.COM", link: "https://ydrgl3.com/?pid=3468467757" },
                 { nome: "67Q_SLOTS", link: "https://rt9p87.com/?pid=2540232740" },
+                { nome: "5KKK_SLOTS", link: "https://5kkk07.com/?pid=6600386280" },
+                { nome: "79P.COM", link: "https://79p003.com/?pid=6366853274" },
+                { nome: "FF345.NET", link: "https://ff345.org/?pid=1438668279" },
                 { nome: "75C.COM", link: "https://75cc12.com/?pid=3881404916" }
             ]
         },
